@@ -1,21 +1,23 @@
+@use "variables" as v;
+@use "mixins" as m;
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  height: 100%;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 body {
-  font-family: $fuente_principal;
-  font-size: 1.6rem;
-  line-height: 1.8;
+  font-size: 1.8rem;
 }
 a {
   text-decoration: none;
 }
-
-img,
-picture {
+img {
   width: 100%;
-  display: block;
+  height: auto;
 }

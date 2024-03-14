@@ -1,10 +1,7 @@
 <?php 
-/** CONSTANTES */
-define("TEMPLATES_URL", __DIR__."/templates");
-define("FUNCIONES_URL", __DIR__."funciones.php");
-    
-  /** Función para visualizar resultados formateados. La función muestra un resultado y detiene toda la ejecución del programa.
-  * @return void
+  /** Visualizar resultados formateados. La función muestra un resultado y detiene toda la ejecución del programa siguiente
+   * @param mixed $var
+   * @return void
   */
   function debuguear(mixed $var) : void {
     echo "<pre>";
@@ -13,7 +10,7 @@ define("FUNCIONES_URL", __DIR__."funciones.php");
     exit;
   }
 
-  /** Función que sanitiza el HTML y retorna datos sanitizados
+  /** Sanitiza la entrada de datos utilizando una función nativa de PHP para sanitizar el HTML y retorna los datos snitizados
    * @param string $html
    * @return string 
   */
@@ -22,18 +19,19 @@ define("FUNCIONES_URL", __DIR__."funciones.php");
     return $s;
   }
 
-  /** Valida alguna entrada de id por metodo get y redirecciona en caso de no pasar la validación
-   * @param string $url
-   * @return int 
+  /** Verificar si el usuario se encuentra autenticado
+   * @return bool
    */
-  function valOred(string $url) : int {
-    // Filtrar el id por dato entero
-    $id = filter_var($_GET["id"], FILTER_VALIDATE_INT);
-
-    // Validación del id
-    if(!$id) {
-      header("Location: $url");
-    }
-    return $id;
+  function is_auth() : bool {
+    session_start();
+    return isset($_SESSION["auth"]) && !empty($_SESSION);
+  }
+  
+  /** Validar que un usuario cuente con permisos de administrador
+   * @return bool
+   */
+  function is_admin() : bool {
+    session_start();
+    return isset($_SESSION["admin"]) && !empty($_SESSION["admin"]);
   }
 ?>

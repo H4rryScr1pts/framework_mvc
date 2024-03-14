@@ -1,25 +1,47 @@
 /** Media Queries **/
 @mixin telefono {
   @media (min-width: #{$telefono}) {
-      @content;
+    @content;
   }
 }
 
 @mixin tablet {
   @media (min-width: #{$tablet}) {
-      @content;
+    @content;
   }
 }
 
 @mixin desktop {
   @media (min-width: #{$desktop}) {
-      @content;
+    @content;
   }
 }
 
-@mixin grid($columnas, $espaciado ) {
+@mixin grid($columnas, $espaciado) {
   display: grid;
   gap: $espaciado;
   grid-template-columns: repeat($columnas, 1fr);
 }
 
+@mixin contenedor {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+}
+
+@mixin conenedor-md {
+  width: min(95%, 80rem);
+  margin: 0 auto;
+}
+
+@mixin contenedor-sm {
+  width: min(95%, 60rem);
+  margin: 0 auto;
+}
+
+@mixin textoFluido($min, $max) {
+  font-size: clamp($min, -0.8rem + 10vw, $max);
+}
+
+@mixin shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

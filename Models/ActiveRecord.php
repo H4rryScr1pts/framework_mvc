@@ -55,6 +55,26 @@ class ActiveRecord {
     return $result;
   }
 
+  /** used for create record's pagination
+   * @param int $pags_number
+   * @param int $offset
+   * @return array
+   */
+  public static function paginar(int $registro_pagina, int $offset) : array {
+    $query = "SELECT * FROM " . static::$table . "  ORDER BY id DESC LIMIT $registro_pagina OFFSET $offset" ;
+    $resultado = self::consultarSQL($query);
+    return $resultado;
+  }
+
+   /** Get total records number */
+   public static function total() {
+    $query = "SELECT COUNT(*) FROM " . static::$table . ";";
+    $resultado = self::$db->query($query);
+    $total = $resultado->fetch_array();
+    
+    return array_shift($total);
+}
+
   /** Save or update a record of the table
   * @return void
   */
