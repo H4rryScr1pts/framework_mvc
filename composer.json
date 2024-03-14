@@ -3,22 +3,29 @@
   "description": "Web Develoment Frameword",
   "type": "project",
   "autoload": {
-      "psr-4": {
-          "MVC\\": "./",
-          "Controller\\": "./controllers",
-          "Model\\":  "./models",
-          "Classes\\": "./classes"
-      }
+    "psr-4": {
+      "MVC\\": "./",
+      "Controller\\": "./controllers",
+      "Model\\": "./models",
+      "Classes\\": "./classes"
+    }
   },
   "authors": [
-      {
-          "name": "Leonardo Torres",
-          "email": "harrywilsonth01@gmail.com"
-      }
+    {
+      "name": "Leonardo Torres",
+      "email": "harrywilsonth01@gmail.com"
+    }
   ],
   "require": {
-      "intervention/image": "^2.7",
-      "phpmailer/phpmailer": "^6.8",
-      "vlucas/phpdotenv": "^5.5"
-  }
+    "intervention/image": "^2.7",
+    "phpmailer/phpmailer": "^6.8",
+    "vlucas/phpdotenv": "^5.5",
+    "vendor/nombre-framework": "wylson"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/H4rryScr1pts/framework_mvc"
+    }
+  ]
 }
